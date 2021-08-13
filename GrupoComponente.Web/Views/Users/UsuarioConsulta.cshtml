@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GrupoComponente.Data.Entidades.User>
+
+@{
+    ViewBag.Title = "UsuarioConsulta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuario Consulta</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Fecha de nacimiento
+        </th>
+        <th>
+            Sexo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDay)
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sex)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
